@@ -21,8 +21,6 @@ steps:
  
 - bash: 'pip install unittest'
  
-  displayName: 'Install a bunch of pip packages.'
- 
  
 - bash: 'python -m unittest test_string_methods'
   displayName: 'Run test'
