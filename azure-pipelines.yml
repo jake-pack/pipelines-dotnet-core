@@ -19,9 +19,6 @@ steps:
 - task: UsePythonVersion@0
   displayName: 'Use Python 3.x'
  
-- bash: 'pip install unittest'
- 
- 
 - bash: 'python -m unittest test_string_methods'
   displayName: 'Run test'
  
