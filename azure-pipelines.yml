@@ -15,3 +15,21 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+ 
+- task: UsePythonVersion@0
+  displayName: 'Use Python 3.x'
+ 
+- bash: 'pip install unittest'
+ 
+  displayName: 'Install a bunch of pip packages.'
+ 
+ 
+- bash: 'python -m unittest test_string_methods'
+  displayName: 'Run test'
+ 
+ 
+- task: PublishTestResults@2
+  displayName: 'Publish test result'
+  inputs:
+    testResultsFiles: '$(Build.StagingDirectory)/010.xml'
+    testRunTitle: 010
